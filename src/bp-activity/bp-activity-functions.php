@@ -198,7 +198,7 @@ function bp_activity_adjust_mention_count( $activity_id = 0, $action = 'add' ) {
  * @param string $action      'delete' or 'add'. Default: 'add'.
  * @return bool
  */
-function bp_activity_update_mention_count_for_user( $user_id, $activity_id, $action = 'add' ) {
+function bp_activity_update_mention_count_for_user( int $user_id, int $activity_id, string $action = 'add' ): bool {
 
 	if ( empty( $user_id ) || empty( $activity_id ) ) {
 		return false;

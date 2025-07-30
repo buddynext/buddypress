@@ -28,7 +28,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var int
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * The ID of the item associated with the notification.
@@ -36,7 +36,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var int
 	 */
-	public $item_id;
+	public int $item_id = 0;
 
 	/**
 	 * The ID of the secondary item associated with the notification.
@@ -44,7 +44,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var int|null
 	 */
-	public $secondary_item_id = null;
+	public ?int $secondary_item_id = null;
 
 	/**
 	 * The ID of the user the notification is associated with.
@@ -52,7 +52,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var int
 	 */
-	public $user_id;
+	public int $user_id = 0;
 
 	/**
 	 * The name of the component that the notification is for.
@@ -60,7 +60,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var string
 	 */
-	public $component_name;
+	public string $component_name = '';
 
 	/**
 	 * The component action which the notification is related to.
@@ -68,7 +68,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var string
 	 */
-	public $component_action;
+	public string $component_action = '';
 
 	/**
 	 * The date the notification was created.
@@ -76,7 +76,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var string
 	 */
-	public $date_notified;
+	public string $date_notified = '';
 
 	/**
 	 * Is the notification new, or has it already been read.
@@ -84,7 +84,7 @@ class BP_Notifications_Notification {
 	 * @since 1.9.0
 	 * @var bool
 	 */
-	public $is_new;
+	public bool $is_new = true;
 
 	/**
 	 * Columns in the notifications table.
@@ -113,7 +113,7 @@ class BP_Notifications_Notification {
 	 * @param int $id Optional. Provide an ID to access an existing
 	 *                notification item.
 	 */
-	public function __construct( $id = 0 ) {
+	public function __construct( int $id = 0 ) {
 		if ( ! empty( $id ) ) {
 			$this->id = (int) $id;
 			$this->populate();
@@ -129,7 +129,7 @@ class BP_Notifications_Notification {
 	 *
 	 * @return bool
 	 */
-	public function save() {
+	public function save(): bool {
 		$retval = false;
 
 		/**
@@ -192,7 +192,7 @@ class BP_Notifications_Notification {
 	 *
 	 * @global wpdb $wpdb WordPress database object.
 	 */
-	public function populate() {
+	public function populate(): void {
 		global $wpdb;
 
 		$bp = buddypress();

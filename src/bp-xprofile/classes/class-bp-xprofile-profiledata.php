@@ -24,7 +24,7 @@ class BP_XProfile_ProfileData {
 	 * @since 1.6.0
 	 * @var int $id
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * User ID.
@@ -32,7 +32,7 @@ class BP_XProfile_ProfileData {
 	 * @since 1.6.0
 	 * @var int $user_id
 	 */
-	public $user_id;
+	public int $user_id = 0;
 
 	/**
 	 * XProfile field ID.
@@ -40,7 +40,7 @@ class BP_XProfile_ProfileData {
 	 * @since 1.6.0
 	 * @var int $field_id
 	 */
-	public $field_id;
+	public int $field_id = 0;
 
 	/**
 	 * XProfile field value.
@@ -48,7 +48,7 @@ class BP_XProfile_ProfileData {
 	 * @since 1.6.0
 	 * @var string $value
 	 */
-	public $value;
+	public string $value = '';
 
 	/**
 	 * XProfile field last updated time.
@@ -56,7 +56,7 @@ class BP_XProfile_ProfileData {
 	 * @since 1.6.0
 	 * @var string $last_updated
 	 */
-	public $last_updated;
+	public string $last_updated = '';
 
 	/**
 	 * BP_XProfile_ProfileData constructor.
@@ -66,7 +66,7 @@ class BP_XProfile_ProfileData {
 	 * @param int|null $field_id Field ID to instantiate.
 	 * @param int|null $user_id  User ID to instantiate for.
 	 */
-	public function __construct( $field_id = null, $user_id = null ) {
+	public function __construct( ?int $field_id = null, ?int $user_id = null ) {
 		if ( ! empty( $field_id ) ) {
 			$this->populate( $field_id, $user_id );
 		}
@@ -82,7 +82,7 @@ class BP_XProfile_ProfileData {
 	 * @param int $field_id Field ID to populate.
 	 * @param int $user_id  User ID to populate for.
 	 */
-	public function populate( $field_id, $user_id ) {
+	public function populate( int $field_id, int $user_id ): void {
 		global $wpdb;
 
 		$cache_key   = "{$user_id}:{$field_id}";

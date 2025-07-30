@@ -24,7 +24,7 @@ class BP_Groups_Group {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * User ID of the group's creator.
@@ -32,7 +32,7 @@ class BP_Groups_Group {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	public $creator_id;
+	public int $creator_id = 0;
 
 	/**
 	 * Name of the group.
@@ -40,7 +40,7 @@ class BP_Groups_Group {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	public $name;
+	public string $name = '';
 
 	/**
 	 * Group slug.
@@ -48,7 +48,7 @@ class BP_Groups_Group {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	public $slug;
+	public string $slug = '';
 
 	/**
 	 * Group description.
@@ -56,7 +56,7 @@ class BP_Groups_Group {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	public $description;
+	public string $description = '';
 
 	/**
 	 * Group status.
@@ -66,7 +66,7 @@ class BP_Groups_Group {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	public $status;
+	public string $status = '';
 
 	/**
 	 * Parent ID.
@@ -76,7 +76,7 @@ class BP_Groups_Group {
 	 * @since 2.7.0
 	 * @var int
 	 */
-	public $parent_id;
+	public int $parent_id = 0;
 
 	/**
 	 * Controls whether the group has a forum enabled.
@@ -86,7 +86,7 @@ class BP_Groups_Group {
 	 *
 	 * @var int
 	 */
-	public $enable_forum;
+	public int $enable_forum = 0;
 
 	/**
 	 * Date the group was created.
@@ -94,7 +94,7 @@ class BP_Groups_Group {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	public $date_created;
+	public string $date_created = '';
 
 	/**
 	 * Data about the group's admins.

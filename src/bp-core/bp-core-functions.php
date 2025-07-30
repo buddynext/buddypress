@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.6.0
  */
-function bp_version() {
+function bp_version(): void {
 	echo esc_html( bp_get_version() );
 }
 	/**
@@ -27,7 +27,7 @@ function bp_version() {
 	 *
 	 * @return string The BuddyPress version.
 	 */
-	function bp_get_version() {
+	function bp_get_version(): string {
 		return buddypress()->version;
 	}
 
@@ -36,7 +36,7 @@ function bp_version() {
  *
  * @since 1.6.0
  */
-function bp_db_version() {
+function bp_db_version(): void {
 	echo esc_html( bp_get_db_version() );
 }
 	/**
@@ -46,7 +46,7 @@ function bp_db_version() {
 	 *
 	 * @return string The BuddyPress database version.
 	 */
-	function bp_get_db_version() {
+	function bp_get_db_version(): string {
 		return buddypress()->db_version;
 	}
 
@@ -55,7 +55,7 @@ function bp_db_version() {
  *
  * @since 1.6.0
  */
-function bp_db_version_raw() {
+function bp_db_version_raw(): void {
 	echo esc_html( bp_get_db_version_raw() );
 }
 	/**
@@ -65,7 +65,7 @@ function bp_db_version_raw() {
 	 *
 	 * @return string The BuddyPress version direct from the database.
 	 */
-	function bp_get_db_version_raw() {
+	function bp_get_db_version_raw(): string {
 		$bp = buddypress();
 		return !empty( $bp->db_version_raw ) ? $bp->db_version_raw : 0;
 	}
@@ -77,7 +77,7 @@ function bp_db_version_raw() {
  *
  * @param string $version BuddyPress version.
  */
-function bp_major_version( $version = '' ) {
+function bp_major_version( string $version = '' ): void {
 	echo esc_html( bp_get_major_version( $version ) );
 }
 
@@ -89,7 +89,7 @@ function bp_major_version( $version = '' ) {
 	 * @param string $version BuddyPress version.
 	 * @return string The corresponding BuddyPress major version.
 	 */
-	function bp_get_major_version( $version = '' ) {
+	function bp_get_major_version( string $version = '' ): string {
 		if ( ! $version ) {
 			$version = bp_get_version();
 		}

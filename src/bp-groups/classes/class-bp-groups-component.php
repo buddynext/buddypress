@@ -24,15 +24,15 @@ class BP_Groups_Component extends BP_Component {
 	 * @since 1.5.0
 	 * @var bool
 	 */
-	public $auto_join;
+	public bool $auto_join = false;
 
 	/**
 	 * The group being currently accessed.
 	 *
 	 * @since 1.5.0
-	 * @var BP_Groups_Group
+	 * @var BP_Groups_Group|int|null
 	 */
-	public $current_group;
+	public $current_group = null;
 
 	/**
 	 * Default group extension.
@@ -40,7 +40,7 @@ class BP_Groups_Component extends BP_Component {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	public $default_extension;
+	public string $default_extension = '';
 
 	/**
 	 * Illegal group names/slugs.
@@ -48,7 +48,7 @@ class BP_Groups_Component extends BP_Component {
 	 * @since 1.5.0
 	 * @var array
 	 */
-	public $forbidden_names;
+	public array $forbidden_names = array();
 
 	/**
 	 * Group creation/edit steps (e.g. Details, Settings, Avatar, Invites).
@@ -56,7 +56,7 @@ class BP_Groups_Component extends BP_Component {
 	 * @since 1.5.0
 	 * @var array
 	 */
-	public $group_creation_steps;
+	public array $group_creation_steps = array();
 
 	/**
 	 * Types of group statuses (Public, Private, Hidden).
@@ -64,7 +64,7 @@ class BP_Groups_Component extends BP_Component {
 	 * @since 1.5.0
 	 * @var array
 	 */
-	public $valid_status;
+	public array $valid_status = array();
 
 	/**
 	 * Group types.
@@ -80,9 +80,9 @@ class BP_Groups_Component extends BP_Component {
 	 * Nav for the Group component.
 	 *
 	 * @since 2.6.0
-	 * @var BP_Core_Nav
+	 * @var BP_Core_Nav|null
 	 */
-	public $nav;
+	public $nav = null;
 
 	/**
 	 * Current directory group type.

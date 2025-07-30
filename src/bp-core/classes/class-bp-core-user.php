@@ -30,56 +30,56 @@ class BP_Core_User {
 	 *
 	 * @var integer
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * The URL to the full size of the avatar for the user.
 	 *
 	 * @var string
 	 */
-	public $avatar;
+	public string $avatar = '';
 
 	/**
 	 * The URL to the thumb size of the avatar for the user.
 	 *
 	 * @var string
 	 */
-	public $avatar_thumb;
+	public string $avatar_thumb = '';
 
 	/**
 	 * The URL to the mini size of the avatar for the user.
 	 *
 	 * @var string
 	 */
-	public $avatar_mini;
+	public string $avatar_mini = '';
 
 	/**
 	 * The full name of the user.
 	 *
 	 * @var string
 	 */
-	public $fullname;
+	public string $fullname = '';
 
 	/**
 	 * The email for the user.
 	 *
 	 * @var string
 	 */
-	public $email;
+	public string $email = '';
 
 	/**
 	 * The absolute url for the user's profile.
 	 *
 	 * @var string
 	 */
-	public $user_url;
+	public string $user_url = '';
 
 	/**
 	 * The HTML for the user link, with the link text being the user's full name.
 	 *
 	 * @var string
 	 */
-	public $user_link;
+	public string $user_link = '';
 
 	/**
 	 * Contains a formatted string when the last time the user was active.
@@ -88,7 +88,7 @@ class BP_Core_User {
 	 *
 	 * @var string
 	 */
-	public $last_active;
+	public string $last_active = '';
 
 	/* Extras */
 
@@ -97,7 +97,7 @@ class BP_Core_User {
 	 *
 	 * @var integer
 	 */
-	public $total_friends;
+	public int $total_friends = 0;
 
 	/**
 	 * The total number of blog posts published by the user.
@@ -105,7 +105,7 @@ class BP_Core_User {
 	 * @var integer
 	 * @deprecated No longer used
 	 */
-	public $total_blogs;
+	public int $total_blogs = 0;
 
 	/**
 	 * The total number of groups the user is a part of.
@@ -114,7 +114,7 @@ class BP_Core_User {
 	 *
 	 * @var string
 	 */
-	public $total_groups;
+	public string $total_groups = '';
 
 	/**
 	 * Profile information for the specific user.
@@ -122,7 +122,7 @@ class BP_Core_User {
 	 * @since 1.2.0
 	 * @var array
 	 */
-	public $profile_data;
+	public array $profile_data = array();
 
 	/** Public Methods *******************************************************/
 
@@ -133,7 +133,7 @@ class BP_Core_User {
 	 * @param bool    $populate_extras Optional. Whether to fetch extra information such as
 	 *                                 group/friendship counts or not. Default: false.
 	 */
-	public function __construct( $user_id, $populate_extras = false ) {
+	public function __construct( int $user_id, bool $populate_extras = false ) {
 		if ( ! empty( $user_id ) ) {
 			$this->id = $user_id;
 			$this->populate();

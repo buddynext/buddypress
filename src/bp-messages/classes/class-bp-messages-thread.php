@@ -24,7 +24,7 @@ class BP_Messages_Thread {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $thread_id;
+	public int $thread_id = 0;
 
 	/**
 	 * The current messages in the message thread.
@@ -32,7 +32,7 @@ class BP_Messages_Thread {
 	 * @since 1.0.0
 	 * @var array
 	 */
-	public $messages;
+	public array $messages = array();
 
 	/**
 	 * The current messages count in the message thread.
@@ -40,7 +40,7 @@ class BP_Messages_Thread {
 	 * @since 12.0.0
 	 * @var int
 	 */
-	public $messages_total_count;
+	public int $messages_total_count = 0;
 
 	/**
 	 * The current recipients in the message thread.
@@ -48,7 +48,7 @@ class BP_Messages_Thread {
 	 * @since 1.0.0
 	 * @var array
 	 */
-	public $recipients;
+	public array $recipients = array();
 
 	/**
 	 * The user ID of the sender of the message thread.
@@ -56,7 +56,7 @@ class BP_Messages_Thread {
 	 * @since 1.2.0
 	 * @var int
 	 */
-	public $sender_id;
+	public int $sender_id = 0;
 
 	/**
 	 * The user IDs of all messages in the message thread.
@@ -64,7 +64,7 @@ class BP_Messages_Thread {
 	 * @since 1.2.0
 	 * @var array
 	 */
-	public $sender_ids;
+	public array $sender_ids = array();
 
 	/**
 	 * The unread count for the logged-in user.
@@ -72,7 +72,7 @@ class BP_Messages_Thread {
 	 * @since 1.2.0
 	 * @var int
 	 */
-	public $unread_count;
+	public int $unread_count = 0;
 
 	/**
 	 * The content of the last message in this thread.
@@ -80,7 +80,7 @@ class BP_Messages_Thread {
 	 * @since 1.2.0
 	 * @var string
 	 */
-	public $last_message_content;
+	public string $last_message_content = '';
 
 	/**
 	 * The date of the last message in this thread.
@@ -88,7 +88,7 @@ class BP_Messages_Thread {
 	 * @since 1.2.0
 	 * @var string
 	 */
-	public $last_message_date;
+	public string $last_message_date = '';
 
 	/**
 	 * The ID of the last message in this thread.
@@ -96,7 +96,7 @@ class BP_Messages_Thread {
 	 * @since 1.2.0
 	 * @var int
 	 */
-	public $last_message_id;
+	public int $last_message_id = 0;
 
 	/**
 	 * The subject of the last message in this thread.

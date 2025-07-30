@@ -22,9 +22,9 @@ class BP_XProfile_Group {
 	 * Field group ID.
 	 *
 	 * @since 1.1.0
-	 * @var int ID of field group.
+	 * @var int|null ID of field group.
 	 */
-	public $id = null;
+	public ?int $id = null;
 
 	/**
 	 * Field group name.
@@ -32,7 +32,7 @@ class BP_XProfile_Group {
 	 * @since 1.1.0
 	 * @var string Name of field group.
 	 */
-	public $name;
+	public string $name = '';
 
 	/**
 	 * Field group Description.
@@ -40,7 +40,7 @@ class BP_XProfile_Group {
 	 * @since 1.1.0
 	 * @var string Description of field group.
 	 */
-	public $description;
+	public string $description = '';
 
 	/**
 	 * Group deletion boolean.
@@ -48,7 +48,7 @@ class BP_XProfile_Group {
 	 * @since 1.1.0
 	 * @var bool Can this group be deleted?
 	 */
-	public $can_delete;
+	public bool $can_delete = true;
 
 	/**
 	 * Group order.
@@ -56,7 +56,7 @@ class BP_XProfile_Group {
 	 * @since 1.1.0
 	 * @var int Group order relative to other groups.
 	 */
-	public $group_order;
+	public int $group_order = 0;
 
 	/**
 	 * Group fields.
@@ -64,7 +64,7 @@ class BP_XProfile_Group {
 	 * @since 1.1.0
 	 * @var array Fields of group.
 	 */
-	public $fields;
+	public array $fields = array();
 
 	/**
 	 * Initialize and/or populate profile field group.
@@ -73,7 +73,7 @@ class BP_XProfile_Group {
 	 *
 	 * @param int|null $id Field group ID.
 	 */
-	public function __construct( $id = null ) {
+	public function __construct( ?int $id = null ) {
 		if ( ! empty( $id ) ) {
 			$this->populate( $id );
 		}
@@ -87,7 +87,7 @@ class BP_XProfile_Group {
 	 * @param int $id Field group ID.
 	 * @return bool
 	 */
-	public function populate( $id ) {
+	public function populate( int $id ): bool {
 
 		// Get this group.
 		$group = self::get(

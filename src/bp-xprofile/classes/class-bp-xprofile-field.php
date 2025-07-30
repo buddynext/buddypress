@@ -24,7 +24,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * Field group ID.
@@ -32,7 +32,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $group_id;
+	public int $group_id = 0;
 
 	/**
 	 * Field parent ID.
@@ -40,7 +40,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $parent_id;
+	public int $parent_id = 0;
 
 	/**
 	 * Field type.
@@ -72,7 +72,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var bool
 	 */
-	public $is_required;
+	public bool $is_required = false;
 
 	/**
 	 * Deletable field?
@@ -80,7 +80,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $can_delete = '1';
+	public int $can_delete = 1;
 
 	/**
 	 * Field position.
@@ -88,7 +88,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $field_order;
+	public int $field_order = 0;
 
 	/**
 	 * Option order.
@@ -96,7 +96,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $option_order;
+	public int $option_order = 0;
 
 	/**
 	 * Order child fields.
@@ -112,7 +112,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var bool
 	 */
-	public $is_default_option;
+	public bool $is_default_option = false;
 
 	/**
 	 * Field data visibility.
@@ -120,7 +120,7 @@ class BP_XProfile_Field {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public $visibility;
+	public string $visibility = '';
 
 	/**
 	 * Field data visibility.
@@ -129,7 +129,7 @@ class BP_XProfile_Field {
 	 * @since 2.4.0 Property marked protected. Now accessible by magic method or by `get_default_visibility()`.
 	 * @var string
 	 */
-	protected $default_visibility;
+	protected string $default_visibility = '';
 
 	/**
 	 * Is the visibility able to be modified?
@@ -138,7 +138,7 @@ class BP_XProfile_Field {
 	 * @since 2.4.0 Property marked protected. Now accessible by magic method or by `get_allow_custom_visibility()`.
 	 * @var string
 	 */
-	protected $allow_custom_visibility;
+	protected string $allow_custom_visibility = '';
 
 	/**
 	 * Whether values from this field are autolinked to directory searches.
@@ -146,7 +146,7 @@ class BP_XProfile_Field {
 	 * @since 2.5.0
 	 * @var bool
 	 */
-	public $do_autolink;
+	public bool $do_autolink = false;
 
 	/**
 	 * The signup position of the field into the signups form.

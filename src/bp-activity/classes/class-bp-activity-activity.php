@@ -28,7 +28,7 @@ class BP_Activity_Activity {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	var $id;
+	public int $id = 0;
 
 	/**
 	 * ID of the associated item.
@@ -36,7 +36,7 @@ class BP_Activity_Activity {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	var $item_id;
+	public int $item_id = 0;
 
 	/**
 	 * ID of the associated secondary item.
@@ -44,7 +44,7 @@ class BP_Activity_Activity {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	var $secondary_item_id;
+	public int $secondary_item_id = 0;
 
 	/**
 	 * ID of user associated with the activity item.
@@ -52,7 +52,7 @@ class BP_Activity_Activity {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	var $user_id;
+	public int $user_id = 0;
 
 	/**
 	 * The primary URL for the activity in RSS feeds.
@@ -60,7 +60,7 @@ class BP_Activity_Activity {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	var $primary_link = '';
+	public string $primary_link = '';
 
 	/**
 	 * BuddyPress component the activity item relates to.
@@ -68,7 +68,7 @@ class BP_Activity_Activity {
 	 * @since 1.2.0
 	 * @var string
 	 */
-	var $component = '';
+	public string $component = '';
 
 	/**
 	 * Activity type, eg 'new_blog_post'.
@@ -76,7 +76,7 @@ class BP_Activity_Activity {
 	 * @since 1.2.0
 	 * @var string
 	 */
-	var $type = '';
+	public string $type = '';
 
 	/**
 	 * Description of the activity, eg 'Alex updated his profile.'.
@@ -84,7 +84,7 @@ class BP_Activity_Activity {
 	 * @since 1.2.0
 	 * @var string
 	 */
-	var $action = '';
+	public string $action = '';
 
 	/**
 	 * The content of the activity item.
@@ -92,7 +92,7 @@ class BP_Activity_Activity {
 	 * @since 1.2.0
 	 * @var string
 	 */
-	var $content = '';
+	public string $content = '';
 
 	/**
 	 * The date the activity item was recorded, in 'Y-m-d h:i:s' format.
@@ -100,7 +100,7 @@ class BP_Activity_Activity {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	var $date_recorded = '';
+	public string $date_recorded = '';
 
 	/**
 	 * Whether the item should be hidden in sitewide streams.
@@ -108,7 +108,7 @@ class BP_Activity_Activity {
 	 * @since 1.1.0
 	 * @var int
 	 */
-	var $hide_sitewide = 0;
+	public int $hide_sitewide = 0;
 
 	/**
 	 * Node boundary start for activity or activity comment.
@@ -116,7 +116,7 @@ class BP_Activity_Activity {
 	 * @since 1.5.0
 	 * @var int
 	 */
-	var $mptt_left;
+	public int $mptt_left = 0;
 
 	/**
 	 * Node boundary end for activity or activity comment.
@@ -124,7 +124,7 @@ class BP_Activity_Activity {
 	 * @since 1.5.0
 	 * @var int
 	 */
-	var $mptt_right;
+	public int $mptt_right = 0;
 
 	/**
 	 * Whether this item is marked as spam.
@@ -132,7 +132,7 @@ class BP_Activity_Activity {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $is_spam;
+	public int $is_spam = 0;
 
 	/**
 	 * Error holder.
@@ -159,7 +159,7 @@ class BP_Activity_Activity {
 	 *
 	 * @param int|bool $id Optional. The ID of a specific activity item.
 	 */
-	public function __construct( $id = false ) {
+	public function __construct( int|bool $id = false ) {
 		// Instantiate errors object.
 		$this->errors = new WP_Error;
 
@@ -175,8 +175,9 @@ class BP_Activity_Activity {
 	 * @since 1.0.0
 	 *
 	 * @global wpdb $wpdb WordPress database object.
+	 * @return void
 	 */
-	public function populate() {
+	public function populate(): void {
 		global $wpdb;
 
 		$row = wp_cache_get( $this->id, 'bp_activity' );
@@ -233,7 +234,7 @@ class BP_Activity_Activity {
 	 *
 	 * @return WP_Error|bool True on success.
 	 */
-	public function save() {
+	public function save(): WP_Error|bool {
 		global $wpdb;
 
 		$bp = buddypress();
@@ -393,7 +394,7 @@ class BP_Activity_Activity {
 	 *               - 'total' is the count of located activities
 	 *               - 'activities' is an array of the located activities
 	 */
-	public static function get( $args = array() ) {
+	public static function get( array $args = array() ): array {
 		global $wpdb;
 
 		$function_args = func_get_args();
@@ -1085,7 +1086,7 @@ class BP_Activity_Activity {
 	 *                          documentation for WP_Meta_Query for details.
 	 * @return array $sql_array 'join' and 'where' clauses.
 	 */
-	public static function get_meta_query_sql( $meta_query = array() ) {
+	public static function get_meta_query_sql( array $meta_query = array() ): array {
 		global $wpdb;
 
 		// Default array keys & empty values.
@@ -1126,7 +1127,7 @@ class BP_Activity_Activity {
 	 *                          documentation for the first parameter of WP_Date_Query.
 	 * @return string
 	 */
-	public static function get_date_query_sql( $date_query = array() ) {
+	public static function get_date_query_sql( array $date_query = array() ): array {
 		return BP_Date_Query::get_where_sql( $date_query, 'a.date_recorded' );
 	}
 
@@ -1145,7 +1146,7 @@ class BP_Activity_Activity {
 	 *                       but merged with defaults.
 	 * @return false|array 'sql' WHERE SQL string and 'override' activity args.
 	 */
-	public static function get_scope_query_sql( $scope = false, $r = array() ) {
+	public static function get_scope_query_sql( string|bool $scope = false, array $r = array() ): array|bool {
 
 		// Define arrays for future use.
 		$query_args = array();
@@ -1283,7 +1284,7 @@ class BP_Activity_Activity {
 	 * }
 	 * @return int|false Activity ID on success, false if none is found.
 	 */
-	public static function get_id( $args = array() ) {
+	public static function get_id( array $args = array() ): int|bool {
 		global $wpdb;
 
 		$function_args = func_get_args();
@@ -1399,7 +1400,7 @@ class BP_Activity_Activity {
 	 * }
 	 * @return array|bool An array of deleted activity IDs on success, false on failure.
 	 */
-	public static function delete( $args = array() ) {
+	public static function delete( array $args = array() ): array|bool {
 		global $wpdb;
 
 		$bp = buddypress();
@@ -1569,7 +1570,7 @@ class BP_Activity_Activity {
 	 * @param bool  $delete_meta  Should we delete the activity meta items for these comments.
 	 * @return bool
 	 */
-	public static function delete_activity_item_comments( $activity_ids = array(), $delete_meta = true ) {
+	public static function delete_activity_item_comments( array $activity_ids = array(), bool $delete_meta = true ): bool {
 		global $wpdb;
 
 		$bp = buddypress();
@@ -1597,7 +1598,7 @@ class BP_Activity_Activity {
 	 * @param array $activity_ids Activity IDs whose meta should be deleted.
 	 * @return bool
 	 */
-	public static function delete_activity_meta_entries( $activity_ids = array() ) {
+	public static function delete_activity_meta_entries( array $activity_ids = array() ): bool {
 		$activity_ids = wp_parse_id_list( $activity_ids );
 
 		foreach ( $activity_ids as $activity_id ) {
@@ -1618,7 +1619,7 @@ class BP_Activity_Activity {
 	 * @param string $spam       Optional. 'ham_only' (default), 'spam_only' or 'all'.
 	 * @return array The updated activities with nested comments.
 	 */
-	public static function append_comments( $activities, $spam = 'ham_only' ) {
+	public static function append_comments( array $activities, string $spam = 'ham_only' ): array {
 		$activity_comments = array();
 
 		// Now fetch the activity comments and parse them into the correct position in the activities array.
@@ -1651,7 +1652,7 @@ class BP_Activity_Activity {
 	 * @param int    $top_level_parent_id Optional. The id of the root-level parent activity item.
 	 * @return array The updated activities with nested comments.
 	 */
-	public static function get_activity_comments( $activity_id, $left, $right, $spam = 'ham_only', $top_level_parent_id = 0 ) {
+	public static function get_activity_comments( int $activity_id, int $left, int $right, string $spam = 'ham_only', int $top_level_parent_id = 0 ): array {
 		global $wpdb;
 
 		$function_args = func_get_args();
@@ -1812,7 +1813,7 @@ class BP_Activity_Activity {
 	 * @param int $left      Node boundary start for activity or activity comment.
 	 * @return int Right Node boundary of activity or activity comment.
 	 */
-	public static function rebuild_activity_comment_tree( $parent_id, $left = 1 ) {
+	public static function rebuild_activity_comment_tree( int $parent_id, int $left = 1 ): int {
 		global $wpdb;
 
 		$bp = buddypress();
@@ -1851,7 +1852,7 @@ class BP_Activity_Activity {
 	 * @param int $parent_id ID of an activity or activity comment.
 	 * @return object Numerically indexed array of child comments.
 	 */
-	public static function get_child_comments( $parent_id ) {
+	public static function get_child_comments( int $parent_id ): array {
 		global $wpdb;
 
 		$bp = buddypress();
@@ -1873,7 +1874,7 @@ class BP_Activity_Activity {
 	 *                                 activity items.) Default: true.
 	 * @return array List of component names.
 	 */
-	public static function get_recorded_components( $skip_last_activity = true ) {
+	public static function get_recorded_components( bool $skip_last_activity = true ): array {
 		global $wpdb;
 
 		$bp = buddypress();
@@ -1895,7 +1896,7 @@ class BP_Activity_Activity {
 	 * @param int $limit Optional. Number of items to fetch. Default: 35.
 	 * @return array $activity_feed List of activity items, with RSS data added.
 	 */
-	public static function get_sitewide_items_for_feed( $limit = 35 ) {
+	public static function get_sitewide_items_for_feed( int $limit = 35 ): array {
 		$activities    = bp_activity_get_sitewide( array( 'max' => $limit ) );
 		$activity_feed = array();
 
@@ -2060,7 +2061,7 @@ class BP_Activity_Activity {
 	 * @param int $user_id The ID of the user whose favorites you're counting.
 	 * @return int $value A count of the user's favorites.
 	 */
-	public static function total_favorite_count( $user_id ) {
+	public static function total_favorite_count( int $user_id ): int {
 
 		// Get activities from user meta.
 		$favorite_activity_entries = bp_get_user_meta( $user_id, 'bp_favorite_activities', true );
@@ -2082,7 +2083,7 @@ class BP_Activity_Activity {
 	 * @param string $content The content to filter by.
 	 * @return int|false The ID of the first matching item if found, otherwise false.
 	 */
-	public static function check_exists_by_content( $content ) {
+	public static function check_exists_by_content( string $content ): int|null {
 		global $wpdb;
 
 		$bp = buddypress();

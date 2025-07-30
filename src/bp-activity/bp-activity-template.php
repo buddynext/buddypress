@@ -14,9 +14,9 @@ defined( 'ABSPATH' ) || exit;
  * Output the activity component slug.
  *
  * @since 1.5.0
- *
+ * @return void
  */
-function bp_activity_slug() {
+function bp_activity_slug(): void {
 	echo esc_attr( bp_get_activity_slug() );
 }
 	/**
@@ -24,10 +24,9 @@ function bp_activity_slug() {
 	 *
 	 * @since 1.5.0
 	 *
-	 *
 	 * @return string The activity component slug.
 	 */
-	function bp_get_activity_slug() {
+	function bp_get_activity_slug(): string {
 
 		/**
 		 * Filters the activity component slug.
@@ -43,9 +42,9 @@ function bp_activity_slug() {
  * Output the activity component root slug.
  *
  * @since 1.5.0
- *
+ * @return void
  */
-function bp_activity_root_slug() {
+function bp_activity_root_slug(): void {
 	echo esc_attr( bp_get_activity_root_slug() );
 }
 	/**
@@ -53,10 +52,9 @@ function bp_activity_root_slug() {
 	 *
 	 * @since 1.5.0
 	 *
-	 *
 	 * @return string The activity component root slug.
 	 */
-	function bp_get_activity_root_slug() {
+	function bp_get_activity_root_slug(): string {
 
 		/**
 		 * Filters the activity component root slug.
@@ -72,9 +70,9 @@ function bp_activity_root_slug() {
  * Output activity directory permalink.
  *
  * @since 1.5.0
- *
+ * @return void
  */
-function bp_activity_directory_permalink() {
+function bp_activity_directory_permalink(): void {
 	echo esc_url( bp_get_activity_directory_permalink() );
 }
 	/**
@@ -82,10 +80,9 @@ function bp_activity_directory_permalink() {
 	 *
 	 * @since 1.5.0
 	 *
-	 *
 	 * @return string Activity directory permalink.
 	 */
-	function bp_get_activity_directory_permalink() {
+	function bp_get_activity_directory_permalink(): string {
 		$url = bp_rewrites_get_url(
 			array(
 				'component_id' => 'activity',

@@ -21,7 +21,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var integer
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * ID of the signup which the object relates to.
@@ -29,7 +29,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var integer
 	 */
-	public $signup_id;
+	public int $signup_id = 0;
 
 	/**
 	 * The URL to the full size of the avatar for the user.
@@ -37,7 +37,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var string
 	 */
-	public $avatar;
+	public string $avatar = '';
 
 	/**
 	 * The username for the user.
@@ -45,7 +45,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var string
 	 */
-	public $user_login;
+	public string $user_login = '';
 
 	/**
 	 * The email for the user.
@@ -53,7 +53,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var string
 	 */
-	public $user_email;
+	public string $user_email = '';
 
 	/**
 	 * The full name of the user.
@@ -61,7 +61,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var string
 	 */
-	public $user_name;
+	public string $user_name = '';
 
 	/**
 	 * Metadata associated with the signup.
@@ -69,7 +69,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var array
 	 */
-	public $meta;
+	public array $meta = array();
 
 	/**
 	 * The registered date for the user.
@@ -77,7 +77,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var string
 	 */
-	public $registered;
+	public string $registered = '';
 
 	/**
 	 * The activation key for the user.
@@ -85,7 +85,7 @@ class BP_Signup {
 	 * @since 2.0.0
 	 * @var string
 	 */
-	public $activation_key;
+	public string $activation_key = '';
 
 	/**
 	 * The activated date for the user.
@@ -93,7 +93,7 @@ class BP_Signup {
 	 * @since 10.0.0
 	 * @var string
 	 */
-	public $activated;
+	public string $activated = '';
 
 	/**
 	 * Whether the user account is activated or not.
@@ -101,7 +101,7 @@ class BP_Signup {
 	 * @since 10.0.0
 	 * @var bool
 	 */
-	public $active;
+	public bool $active = false;
 
 	/**
 	 * The date that the last activation email was sent.
@@ -109,7 +109,7 @@ class BP_Signup {
 	 * @since 10.0.0
 	 * @var string
 	 */
-	public $date_sent;
+	public string $date_sent = '';
 
 	/**
 	 * Was the last activation email sent in the last 24 hours?
@@ -117,7 +117,7 @@ class BP_Signup {
 	 * @since 10.0.0
 	 * @var bool
 	 */
-	public $recently_sent;
+	public bool $recently_sent = false;
 
 	/**
 	 * The number of activation emails sent to this user.

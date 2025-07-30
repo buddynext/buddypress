@@ -21,42 +21,42 @@ class BP_Messages_Message {
 	 *
 	 * @var int
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * ID of the message thread.
 	 *
 	 * @var int
 	 */
-	public $thread_id;
+	public int $thread_id = 0;
 
 	/**
 	 * ID of the sender.
 	 *
 	 * @var int
 	 */
-	public $sender_id;
+	public int $sender_id = 0;
 
 	/**
 	 * Subject line of the message.
 	 *
 	 * @var string
 	 */
-	public $subject;
+	public string $subject = '';
 
 	/**
 	 * Content of the message.
 	 *
 	 * @var string
 	 */
-	public $message;
+	public string $message = '';
 
 	/**
 	 * Date the message was sent.
 	 *
 	 * @var string
 	 */
-	public $date_sent;
+	public string $date_sent = '';
 
 	/**
 	 * Message recipients.
@@ -70,7 +70,7 @@ class BP_Messages_Message {
 	 *
 	 * @param int|null $id Optional. ID of the message.
 	 */
-	public function __construct( $id = null ) {
+	public function __construct( ?int $id = null ) {
 		$this->date_sent = bp_core_current_time();
 		$this->sender_id = bp_loggedin_user_id();
 
@@ -86,7 +86,7 @@ class BP_Messages_Message {
 	 *
 	 * @param int $id ID of the message.
 	 */
-	public function populate( $id ) {
+	public function populate( int $id ): void {
 		global $wpdb;
 
 		$bp = buddypress();

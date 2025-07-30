@@ -46,6 +46,7 @@ class BP_Activity_Component extends BP_Component {
 	 * @see BP_Component::includes() for a description of arguments.
 	 *
 	 * @param array $includes See BP_Component::includes() for a description.
+	 * @return void
 	 */
 	public function includes( $includes = array() ) {
 
@@ -185,6 +186,7 @@ class BP_Activity_Component extends BP_Component {
 	 * @see BP_Component::setup_globals() for a description of arguments.
 	 *
 	 * @param array $args See BP_Component::setup_globals() for a description.
+	 * @return void
 	 */
 	public function setup_globals( $args = array() ) {
 		$bp           = buddypress();

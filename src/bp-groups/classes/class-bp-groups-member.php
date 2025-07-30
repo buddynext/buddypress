@@ -21,7 +21,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $id;
+	public int $id = 0;
 
 	/**
 	 * ID of the group associated with the membership.
@@ -29,7 +29,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $group_id;
+	public int $group_id = 0;
 
 	/**
 	 * ID of the user associated with the membership.
@@ -37,7 +37,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $user_id;
+	public int $user_id = 0;
 
 	/**
 	 * ID of the user whose invitation initiated the membership.
@@ -45,7 +45,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $inviter_id;
+	public int $inviter_id = 0;
 
 	/**
 	 * Whether the member is an admin of the group.
@@ -53,7 +53,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $is_admin;
+	public int $is_admin = 0;
 
 	/**
 	 * Whether the member is a mod of the group.
@@ -61,7 +61,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $is_mod;
+	public int $is_mod = 0;
 
 	/**
 	 * Whether the member is banned from the group.
@@ -69,7 +69,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $is_banned;
+	public int $is_banned = 0;
 
 	/**
 	 * Title used to describe the group member's role in the group.
@@ -77,9 +77,9 @@ class BP_Groups_Member {
 	 * Eg, 'Group Admin'.
 	 *
 	 * @since 1.6.0
-	 * @var int
+	 * @var string
 	 */
-	var $user_title;
+	public string $user_title = '';
 
 	/**
 	 * Last modified date of the membership.
@@ -89,7 +89,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	var $date_modified;
+	public string $date_modified = '';
 
 	/**
 	 * Whether the membership has been confirmed.
@@ -97,7 +97,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $is_confirmed;
+	public int $is_confirmed = 0;
 
 	/**
 	 * Comments associated with the membership.
@@ -108,7 +108,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var string
 	 */
-	var $comments;
+	public string $comments = '';
 
 	/**
 	 * Whether an invitation has been sent for this membership.
@@ -121,7 +121,7 @@ class BP_Groups_Member {
 	 * @since 1.6.0
 	 * @var int
 	 */
-	var $invite_sent;
+	public int $invite_sent = 0;
 
 	/**
 	 * WP_User object representing the membership's user.

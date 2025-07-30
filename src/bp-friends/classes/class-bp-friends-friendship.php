@@ -24,7 +24,7 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $id;
+	public int $id = 0;
 
 	/**
 	 * User ID of the friendship initiator.
@@ -32,7 +32,7 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $initiator_user_id;
+	public int $initiator_user_id = 0;
 
 	/**
 	 * User ID of the 'friend' - the one invited to the friendship.
@@ -40,7 +40,7 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $friend_user_id;
+	public int $friend_user_id = 0;
 
 	/**
 	 * Has the friendship been confirmed/accepted?
@@ -48,7 +48,7 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $is_confirmed;
+	public int $is_confirmed = 0;
 
 	/**
 	 * Is this a "limited" friendship?
@@ -58,7 +58,7 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var int
 	 */
-	public $is_limited;
+	public int $is_limited = 0;
 
 	/**
 	 * Date the friendship was created.
@@ -66,7 +66,7 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public $date_created;
+	public string $date_created = '';
 
 	/**
 	 * Is this a request?
@@ -76,7 +76,7 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var bool
 	 */
-	public $is_request;
+	public bool $is_request = false;
 
 	/**
 	 * Should additional friend details be queried?
@@ -84,15 +84,15 @@ class BP_Friends_Friendship {
 	 * @since 1.0.0
 	 * @var bool
 	 */
-	public $populate_friend_details;
+	public bool $populate_friend_details = false;
 
 	/**
 	 * Details about the friend.
 	 *
 	 * @since 1.0.0
-	 * @var BP_Core_User
+	 * @var BP_Core_User|null
 	 */
-	public $friend;
+	public ?BP_Core_User $friend = null;
 
 	/**
 	 * Constructor method.

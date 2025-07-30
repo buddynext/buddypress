@@ -26,28 +26,28 @@ class BP_Blogs_Blog {
 	 *
 	 * @var int|null
 	 */
-	public $id;
+	public ?int $id = null;
 
 	/**
 	 * User ID.
 	 *
 	 * @var int
 	 */
-	public $user_id;
+	public int $user_id = 0;
 
 	/**
 	 * Blog ID.
 	 *
 	 * @var int
 	 */
-	public $blog_id;
+	public int $blog_id = 0;
 
 	/**
 	 * Constructor method.
 	 *
 	 * @param int|null $id Optional. The ID of the blog.
 	 */
-	public function __construct( $id = null ) {
+	public function __construct( ?int $id = null ) {
 		if ( ! empty( $id ) ) {
 			$this->id = (int) $id;
 			$this->populate();
@@ -57,7 +57,7 @@ class BP_Blogs_Blog {
 	/**
 	 * Populate the object with data about the specific activity item.
 	 */
-	public function populate() {
+	public function populate(): void {
 		global $wpdb;
 
 		$bp = buddypress();
@@ -75,7 +75,7 @@ class BP_Blogs_Blog {
 	 *
 	 * @return bool
 	 */
-	public function save() {
+	public function save(): bool {
 		global $wpdb;
 
 		/**

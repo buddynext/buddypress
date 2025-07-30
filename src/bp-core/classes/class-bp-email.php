@@ -23,7 +23,7 @@ class BP_Email {
 	 *
 	 * @var BP_Email_Recipient[] BCC recipients.
 	 */
-	protected $bcc = array();
+	protected array $bcc = array();
 
 	/**
 	 * Addressee details (CC).
@@ -32,7 +32,7 @@ class BP_Email {
 	 *
 	 * @var BP_Email_Recipient[] CC recipients.
 	 */
-	protected $cc = array();
+	protected array $cc = array();
 
 	/**
 	 * Email content (HTML).
@@ -41,7 +41,7 @@ class BP_Email {
 	 *
 	 * @var string
 	 */
-	protected $content_html = '';
+	protected string $content_html = '';
 
 	/**
 	 * Email content (plain text).
@@ -50,7 +50,7 @@ class BP_Email {
 	 *
 	 * @var string
 	 */
-	protected $content_plaintext = '';
+	protected string $content_plaintext = '';
 
 	/**
 	 * The content type to send the email in ("html" or "plaintext").
@@ -59,7 +59,7 @@ class BP_Email {
 	 *
 	 * @var string
 	 */
-	protected $content_type = 'html';
+	protected string $content_type = 'html';
 
 	/**
 	 * Sender details.
@@ -68,7 +68,7 @@ class BP_Email {
 	 *
 	 * @var BP_Email_Sender
 	 */
-	protected $from = null;
+	protected ?BP_Email_Sender $from = null;
 
 	/**
 	 * Email preheader.
@@ -77,7 +77,7 @@ class BP_Email {
 	 *
 	 * @var string
 	 */
-	protected $preheader = null;
+	protected ?string $preheader = null;
 
 	/**
 	 * Email headers.
@@ -88,7 +88,7 @@ class BP_Email {
 	 *
 	 * @var string[]
 	 */
-	protected $headers = array();
+	protected array $headers = array();
 
 	/**
 	 * The Post object (the source of the email's content and subject).
@@ -97,7 +97,7 @@ class BP_Email {
 	 *
 	 * @var WP_Post|null
 	 */
-	protected $post_object = null;
+	protected ?WP_Post $post_object = null;
 
 	/**
 	 * Reply To details.
@@ -106,7 +106,7 @@ class BP_Email {
 	 *
 	 * @var BP_Email_Sender|null
 	 */
-	protected $reply_to = null;
+	protected ?BP_Email_Sender $reply_to = null;
 
 	/**
 	 * Email subject.
@@ -115,7 +115,7 @@ class BP_Email {
 	 *
 	 * @var string
 	 */
-	protected $subject = '';
+	protected string $subject = '';
 
 	/**
 	 * Email template (the HTML wrapper around the email content).
@@ -124,7 +124,7 @@ class BP_Email {
 	 *
 	 * @var string
 	 */
-	protected $template = '{{{content}}}';
+	protected string $template = '{{{content}}}';
 
 	/**
 	 * Addressee details (to).
@@ -134,7 +134,7 @@ class BP_Email {
 	 * @var BP_Email_Recipient[] Email recipients.
 	 * }
 	 */
-	protected $to = array();
+	protected array $to = array();
 
 	/**
 	 * Unique identifier for this particular type of email.
@@ -143,7 +143,7 @@ class BP_Email {
 	 *
 	 * @var string
 	 */
-	protected $type = '';
+	protected string $type = '';
 
 	/**
 	 * Token names and replacement values for this email.
@@ -154,7 +154,7 @@ class BP_Email {
 	 *
 	 * @var string[]
 	 */
-	protected $tokens = array();
+	protected array $tokens = array();
 
 	/**
 	 * Constructor.
@@ -165,7 +165,7 @@ class BP_Email {
 	 *
 	 * @param string $email_type Unique identifier for a particular type of email.
 	 */
-	public function __construct( $email_type ) {
+	public function __construct( string $email_type ) {
 		$this->type = $email_type;
 
 		// SERVER_NAME isn't always set (e.g CLI).
