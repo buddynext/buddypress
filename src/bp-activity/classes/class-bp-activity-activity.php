@@ -1086,7 +1086,7 @@ class BP_Activity_Activity {
 	 *                          documentation for WP_Meta_Query for details.
 	 * @return array $sql_array 'join' and 'where' clauses.
 	 */
-	public static function get_meta_query_sql( array $meta_query = array() ): array {
+	public static function get_meta_query_sql( $meta_query = array() ): array {
 		global $wpdb;
 
 		// Default array keys & empty values.
@@ -1094,6 +1094,11 @@ class BP_Activity_Activity {
 			'join'  => '',
 			'where' => '',
 		);
+
+		// Ensure $meta_query is an array
+		if ( ! is_array( $meta_query ) ) {
+			$meta_query = array();
+		}
 
 		// Bail if no meta query.
 		if ( empty( $meta_query ) ) {
@@ -1127,7 +1132,12 @@ class BP_Activity_Activity {
 	 *                          documentation for the first parameter of WP_Date_Query.
 	 * @return string
 	 */
-	public static function get_date_query_sql( array $date_query = array() ): array {
+	public static function get_date_query_sql( $date_query = array() ): string {
+		// Ensure $date_query is an array
+		if ( ! is_array( $date_query ) ) {
+			$date_query = array();
+		}
+		
 		return BP_Date_Query::get_where_sql( $date_query, 'a.date_recorded' );
 	}
 
