@@ -445,7 +445,7 @@ class BP_XProfile_Field {
 		 */
 		do_action_ref_array( 'xprofile_field_before_save', array( $this ) );
 
-		$is_new_field = is_null( $this->id );
+		$is_new_field = empty( $this->id );
 
 		if ( ! $is_new_field ) {
 			$sql = $wpdb->prepare(

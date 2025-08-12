@@ -646,10 +646,12 @@ function xprofile_admin_manage_field( $group_id, $field_id = null ) {
 				$field->order_by = $_POST[ "sort_order_{$field->type}" ];
 			}
 
-			$field->field_order = $wpdb->get_var( $wpdb->prepare( "SELECT field_order FROM {$bp->profile->table_name_fields} WHERE id = %d", $field_id ) );
-			if ( ! is_numeric( $field->field_order ) || is_wp_error( $field->field_order ) ) {
-				$field->field_order = (int) $wpdb->get_var( $wpdb->prepare( "SELECT max(field_order) FROM {$bp->profile->table_name_fields} WHERE group_id = %d", $group_id ) );
-				$field->field_order++;
+			$field_order_result = $wpdb->get_var( $wpdb->prepare( "SELECT field_order FROM {$bp->profile->table_name_fields} WHERE id = %d", $field_id ) );
+			if ( ! is_numeric( $field_order_result ) || is_wp_error( $field_order_result ) ) {
+				$max_order = $wpdb->get_var( $wpdb->prepare( "SELECT max(field_order) FROM {$bp->profile->table_name_fields} WHERE group_id = %d", $group_id ) );
+				$field->field_order = ( is_numeric( $max_order ) ? (int) $max_order : 0 ) + 1;
+			} else {
+				$field->field_order = (int) $field_order_result;
 			}
 
 			// For new profile fields, set the $field_id. For existing profile

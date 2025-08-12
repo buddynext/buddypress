@@ -110,6 +110,8 @@ class BP_XProfile_Group {
 		$this->description = $group->description;
 		$this->can_delete  = $group->can_delete;
 		$this->group_order = $group->group_order;
+		
+		return true;
 	}
 
 	/**
